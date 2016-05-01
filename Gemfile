@@ -45,3 +45,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
