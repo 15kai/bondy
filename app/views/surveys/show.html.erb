@@ -1,0 +1,29 @@
+<% content_for :title, @survey.title %>
+
+<h1><%= @survey.title %></h1>
+
+<%= form_for @form, url: surveys_path do |f| %>
+  <% @survey.questions.each do |question| %>
+    <h3><%= question.text %></h3>
+    <% if question.input_type == 'radio' %>
+      <% question.options.each do |option| %>
+        <div>
+          <%= f.radio_button "answer#{question.id}", option.value, id: "survey_form#{@survey.id}_answer#{question.id}_#{option.id}" %>
+          <%= f.label "answer#{question.id}_#{option.id}", option.value %>
+        </div>
+        <!--<div>-->
+          <!--<%= f.check_box "answer#{question.id}", { id: "survey_form#{@survey.id}_answer#{question.id}_#{option.id}" }, option.value, nil  %>-->
+          <!--<%= f.label "answer#{question.id}_#{option.id}", option.value %>-->
+        <!--</div>-->
+      <% end %>
+    <% elsif question.input_type == 'checkbox' %>
+      <div>
+        <%= f.collection_check_boxes("answer#{question.id}", question.options, :value, :value, include_hidden: false) do |b| %>
+          <%= b.check_box(id: "survey_form#{@survey.id}_answer#{question.id}_#{b.object.id}") %>
+          <%= b.label(for: "survey_form#{@survey.id}_answer#{question.id}_#{b.object.id}") { b.text } %><br/>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
