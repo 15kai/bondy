@@ -1,3 +1,69 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.login-buttons-area {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 2px;
+}
+
+.facebook-login-button {
+  background-color: #4267B2;
+}
+
+.facebook-login-icon {
+  background-image: image-url('auth/FB-f-Logo__white_72.png');
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+}
+
+.twitter-login-button {
+  background-color: #55acee;
+}
+
+.twitter-login-icon {
+  background-image: image-url('auth/TwitterLogo_white.png');
+  width: 30px;
+  height: 30px;
+  background-size: 36px;
+  background-position: center center;
+}
+
+.login-button {
+  width: 220px;
+  height: 30px;
+  padding: 10px;
+  text-align: center;
+  margin: 5px auto;
+  border-radius: 2px;
+}
+
+.login-button a:link{
+  color: #fff;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.login-button a:visited{
+  color: #fff;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.login-text {
+  height: 30px;
+  margin: auto;
+}
+
+.login-icon-area {
+  width: 40px;
+  float: left;
+}
+
+a {
+  text-decoration: none;
+  vertical-align: middle;
+}

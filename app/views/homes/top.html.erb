@@ -1,6 +1,23 @@
 <% if logged_in? %>
-  <%= link_to 'ログアウト', logout_path %>
+    <div class="logout">
+      <%= link_to 'ログアウト', logout_path %>
+    </div>
 <% else %>
-  <%= link_to 'Twitterでログイン', 'auth/twitter' %>
-  <%= link_to 'Facebookでログイン', 'auth/facebook' %>
+    <div class="login-buttons-area">
+      <h4> ログイン方法を選択してください。 </h4>
+      <div class="facebook-login-button login-button">
+        <div class="login-icon-area">
+          <div class="facebook-login-icon"></div>
+        </div>
+        <div class="login-text">
+          <%= link_to 'Facebook でログイン', 'auth/facebook' %>
+        </div>
+      </div>
+      <div class="twitter-login-button login-button">
+        <div class="login-icon-area">
+          <div class="twitter-login-icon"></div>
+        </div>
+        <%= link_to 'Twitter でログイン', 'auth/twitter' %>
+      </div>
+    </div>
 <% end %>

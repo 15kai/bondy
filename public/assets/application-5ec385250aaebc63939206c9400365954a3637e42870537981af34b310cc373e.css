@@ -1,0 +1,68 @@
+/* line 6, /Users/fukushima.hitomi/Documents/15kai/bondy/app/assets/stylesheets/homes.scss */
+.login-buttons-area {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 2px;
+}
+
+/* line 12, /Users/fukushima.hitomi/Documents/15kai/bondy/app/assets/stylesheets/homes.scss */
+.facebook-login-button {
+  background-color: #4267B2;
+}
+
+/* line 16, /Users/fukushima.hitomi/Documents/15kai/bondy/app/assets/stylesheets/homes.scss */
+.facebook-login-icon {
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+}
+
+/* line 21, /Users/fukushima.hitomi/Documents/15kai/bondy/app/assets/stylesheets/homes.scss */
+.twitter-login-button {
+  background-color: #55acee;
+}
+
+/* line 25, /Users/fukushima.hitomi/Documents/15kai/bondy/app/assets/stylesheets/homes.scss */
+.login-button {
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  margin: 5px auto;
+  border-radius: 2px;
+}
+
+/* line 33, /Users/fukushima.hitomi/Documents/15kai/bondy/app/assets/stylesheets/homes.scss */
+.login-button a:link {
+  color: #fff;
+}
+
+/* line 37, /Users/fukushima.hitomi/Documents/15kai/bondy/app/assets/stylesheets/homes.scss */
+.login-button a:visited {
+  color: #fff;
+}
+
+/* line 41, /Users/fukushima.hitomi/Documents/15kai/bondy/app/assets/stylesheets/homes.scss */
+a {
+  text-decoration: none;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+body {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
