@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501073403) do
+ActiveRecord::Schema.define(version: 20160501091021) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,     null: false
+    t.integer  "survey_id",  limit: 4,     null: false
+    t.text     "inputs",     limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "answers", ["user_id", "survey_id"], name: "index_answers_on_user_id_and_survey_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",   limit: 255
