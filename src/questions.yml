@@ -1,0 +1,13 @@
+---
+- :text: 当作品をお知りになったきっかけをお知らせください（一つだけお選びください）
+  :input_type: radio
+  :survey_id: 1
+- :text: 当作品に興味を持ったきっかけをお知らせください（全てお選びください。前問と同様の回答でも問題ありません）
+  :input_type: checkbox
+  :survey_id: 1
+- :text: 普段、本を買うきっかけとしてあてはまるものを下記より全てお選びください
+  :input_type: checkbox
+  :survey_id: 1
+- :text: 職業
+  :input_type: radio
+  :survey_id: 1
