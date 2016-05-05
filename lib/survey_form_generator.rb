@@ -3,16 +3,15 @@ class SurveyFormGenerator
     include ActiveModel::Model
     cattr_accessor :survey
 
-    # TODO
-    # params.permit的な奴
-
     def self.setup(survey)
       self.survey = survey
 
       survey.questions.each do |q|
         attr_name = answer_attr(q.id)
         attr_accessor attr_name
-        if q.input_type == 'checkbox'
+
+        case q.input_type
+        when 'checkbox'
           validates attr_name, presence: true
           validate do
             value = send(attr_name)
@@ -21,14 +20,39 @@ class SurveyFormGenerator
               errors.add(attr_name, :invalid)
             end
           end
-        elsif q.input_type == 'radio'
+        when 'radio'
           validates attr_name, presence: true, inclusion: q.options.map(&:value)
+        when 'text', 'textarea'
+          validates attr_name, presence: true
+        end
+
+        set_other_input(q)
+      end
+    end
+
+    def self.set_other_input(q)
+      return unless q.other_input
+
+      attr_name = answer_attr(q.id)
+      other_input_attr_name = other_input_attr(q.id)
+
+      attr_accessor other_input_attr_name
+      validate do
+        value = send(attr_name)
+        if (value.is_a?(Array) && value.include?('その他')) || (value.is_a?(String) && value == 'その他')
+          if send(other_input_attr_name).blank?
+            errors.add(attr_name, :invalid)
+          end
         end
       end
     end
 
     def self.answer_attr(id)
       "answer#{id}"
+    end
+
+    def self.other_input_attr(id)
+      "#{answer_attr(id)}_other"
     end
 
     def inputs

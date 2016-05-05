@@ -10,11 +10,10 @@
         <div>
           <%= f.radio_button "answer#{question.id}", option.value, id: "survey_form#{@survey.id}_answer#{question.id}_#{option.id}" %>
           <%= f.label "answer#{question.id}_#{option.id}", option.value %>
+          <% if option.other_input? %>
+            <%= f.text_field("answer#{question.id}_other") %>
+          <% end %>
         </div>
-        <!--<div>-->
-          <!--<%= f.check_box "answer#{question.id}", { id: "survey_form#{@survey.id}_answer#{question.id}_#{option.id}" }, option.value, nil  %>-->
-          <!--<%= f.label "answer#{question.id}_#{option.id}", option.value %>-->
-        <!--</div>-->
       <% end %>
     <% elsif question.input_type == 'checkbox' %>
       <div>
@@ -22,6 +21,14 @@
           <%= b.check_box(id: "survey_form#{@survey.id}_answer#{question.id}_#{b.object.id}") %>
           <%= b.label(for: "survey_form#{@survey.id}_answer#{question.id}_#{b.object.id}") { b.text } %><br/>
         <% end %>
+      </div>
+    <% elsif question.input_type == 'text' %>
+      <div>
+        <%= f.text_field("answer#{question.id}") %>
+      </div>
+    <% elsif question.input_type == 'textarea' %>
+      <div>
+        <%= f.text_area("answer#{question.id}") %>
       </div>
     <% end %>
   <% end %>
