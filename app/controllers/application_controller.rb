@@ -15,6 +15,24 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     return if logged_in?
+    self.set_request_from
     redirect_to root_path, alert: 'ログインしてください'
+  end
+
+  def set_request_from
+    if session[:request_from]
+      @request_from = session[:request_from]
+    end
+    # 現在のURLを保存しておく
+    session[:request_from] = request.original_url
+  end
+
+  # 前の画面に戻る
+  def return_back
+    if session[:request_from]
+      redirect_to session[:request_from]
+    else
+      redirect_to root_path
+    end
   end
 end
